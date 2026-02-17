@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>ダーツアレンジクイズ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- ヘッダー -->
+        <header>
+            <h1>🎯 アレンジクイズ</h1>
+            <div id="score-display">
+                <span id="correct-count">0</span> / <span id="total-count">0</span>
+            </div>
+        </header>
+
+        <!-- クイズエリア -->
+        <main>
+            <!-- 問題表示 -->
+            <div id="quiz-area">
+                <div id="remaining-label">残り</div>
+                <div id="remaining-score">--</div>
+                <div id="route-info">正解ルート: <span id="route-count">-</span>通り</div>
+            </div>
+
+            <!-- 入力表示 -->
+            <div id="input-display">
+                <div id="current-input">-</div>
+                <div id="input-history"></div>
+            </div>
+
+            <!-- 結果表示 -->
+            <div id="result-area" class="hidden">
+                <div id="result-icon"></div>
+                <div id="result-text"></div>
+                <div id="result-answer"></div>
+                <div id="result-tip"></div>
+                <button id="next-btn" onclick="nextQuiz()">次の問題 →</button>
+            </div>
+
+            <!-- キーボード -->
+            <div id="keyboard-area">
+                <!-- 左側: 倍率キー -->
+                <div id="multiplier-keys">
+                    <button class="key multiplier-key active" data-multiplier="1" onclick="setMultiplier(1)">×1</button>
+                    <button class="key multiplier-key" data-multiplier="2" onclick="setMultiplier(2)">×2</button>
+                    <button class="key multiplier-key" data-multiplier="3" onclick="setMultiplier(3)">×3</button>
+                    <button class="key special-key" onclick="inputBull()">BULL</button>
+                </div>
+
+                <!-- 右側: 数字キー -->
+                <div id="number-keys">
+                    <button class="key number-key" onclick="inputNumber(1)">1</button>
+                    <button class="key number-key" onclick="inputNumber(2)">2</button>
+                    <button class="key number-key" onclick="inputNumber(3)">3</button>
+                    <button class="key number-key" onclick="inputNumber(4)">4</button>
+                    <button class="key number-key" onclick="inputNumber(5)">5</button>
+                    <button class="key number-key" onclick="inputNumber(6)">6</button>
+                    <button class="key number-key" onclick="inputNumber(7)">7</button>
+                    <button class="key number-key" onclick="inputNumber(8)">8</button>
+                    <button class="key number-key" onclick="inputNumber(9)">9</button>
+                    <button class="key number-key" onclick="inputNumber(10)">10</button>
+                    <button class="key number-key" onclick="inputNumber(11)">11</button>
+                    <button class="key number-key" onclick="inputNumber(12)">12</button>
+                    <button class="key number-key" onclick="inputNumber(13)">13</button>
+                    <button class="key number-key" onclick="inputNumber(14)">14</button>
+                    <button class="key number-key" onclick="inputNumber(15)">15</button>
+                    <button class="key number-key" onclick="inputNumber(16)">16</button>
+                    <button class="key number-key" onclick="inputNumber(17)">17</button>
+                    <button class="key number-key" onclick="inputNumber(18)">18</button>
+                    <button class="key number-key" onclick="inputNumber(19)">19</button>
+                    <button class="key number-key" onclick="inputNumber(20)">20</button>
+                </div>
+            </div>
+
+            <!-- アクションボタン -->
+            <div id="action-buttons">
+                <button class="action-btn" id="undo-btn" onclick="undoInput()">← 戻す</button>
+                <button class="action-btn" id="submit-btn" onclick="submitAnswer()">回答 ✓</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="arrangements.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
