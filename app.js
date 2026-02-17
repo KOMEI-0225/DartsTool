@@ -31,8 +31,9 @@ function nextQuiz() {
     updateInputDisplay();
 
     // まだ出題していないスコアからランダムに選択
+    var historySet = new Set(quizHistory);
     var available = QUIZ_SCORES.filter(function (s) {
-        return quizHistory.indexOf(s) === -1;
+        return !historySet.has(s);
     });
 
     // 全部出題済みならリセット
@@ -66,7 +67,7 @@ function updateMultiplierUI() {
     var btns = document.querySelectorAll(".multiplier-key");
     for (var i = 0; i < btns.length; i++) {
         var btn = btns[i];
-        if (parseInt(btn.getAttribute("data-multiplier")) === currentMultiplier) {
+        if (parseInt(btn.getAttribute("data-multiplier"), 10) === currentMultiplier) {
             btn.classList.add("active");
         } else {
             btn.classList.remove("active");
