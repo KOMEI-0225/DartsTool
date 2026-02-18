@@ -26,4 +26,20 @@
 
 ### デプロイ
 
-静的HTMLファイルのみで構成されているため、GitHub Pages等で簡単にホスティングできます。
+静的HTMLファイルのみで構成されているため、ビルド不要でそのままホスティングできます。
+
+#### GitHub Pages（推奨）
+
+このリポジトリにはGitHub Pages用のワークフローが含まれています。
+
+1. リポジトリの **Settings** → **Pages** を開く
+2. **Source** を **GitHub Actions** に変更する
+3. `main` ブランチにpushすると自動デプロイされます
+
+公開URL: `https://<ユーザー名>.github.io/DartsTool/`
+
+#### その他のホスティング
+
+- **Cloudflare Pages**: "Connect to Git" → リポジトリ選択 → 出力ディレクトリに `.` を入力 → デプロイ
+- **Netlify**: "Import from Git" → リポジトリ選択 → 公開ディレクトリに `.` を入力 → デプロイ
+- **Vercel**: "Import Git Repository" → リポジトリ選択 → フレームワーク「Other」→ デプロイ
