@@ -87,7 +87,9 @@ function submitRound() {
     const roundTotal = dart1 + dart2 + dart3;
     
     if (gameState.mode === '01') {
-        // 01 game logic
+        // 01 game logic - simplified version
+        // Note: This implementation allows simple subtraction to zero
+        // A more advanced version would require finishing on a double
         const newScore = gameState.currentScore - roundTotal;
         
         if (newScore < 0) {
@@ -142,6 +144,9 @@ function submitRound() {
         }
     } else if (gameState.mode === 'cricket') {
         // Cricket game - simplified version
+        // Note: This is a basic scoring implementation without standard cricket rules
+        // Standard cricket tracks marks on numbers 15-20 and bullseye
+        // This simplified version only tracks cumulative score for demonstration
         gameState.currentScore += roundTotal;
         gameState.round++;
         
