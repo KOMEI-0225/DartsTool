@@ -25,7 +25,14 @@ const historyDiv = document.getElementById('history');
 function initGame() {
     gameState.mode = gameModeSelect.value;
     gameState.targetScore = parseInt(targetScoreSelect.value);
-    gameState.currentScore = gameState.targetScore;
+    
+    // Set initial score based on game mode
+    if (gameState.mode === '01') {
+        gameState.currentScore = gameState.targetScore;
+    } else {
+        gameState.currentScore = 0;
+    }
+    
     gameState.round = 1;
     gameState.history = [];
     
