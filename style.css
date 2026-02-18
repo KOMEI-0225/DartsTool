@@ -1,0 +1,310 @@
+/* ===== リセット & ベース ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', sans-serif;
+    background: #1a1a2e;
+    color: #e0e0e0;
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+#app {
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+}
+
+/* ===== ヘッダー ===== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: #16213e;
+    border-bottom: 2px solid #0f3460;
+}
+
+header h1 {
+    font-size: 18px;
+    color: #e94560;
+}
+
+#score-display {
+    font-size: 16px;
+    color: #a0a0a0;
+}
+
+#score-display #correct-count {
+    color: #4ecca3;
+    font-weight: bold;
+}
+
+/* ===== メイン ===== */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+/* ===== クイズエリア ===== */
+#quiz-area {
+    text-align: center;
+    padding: 16px 16px 8px;
+}
+
+#remaining-label {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 4px;
+}
+
+#remaining-score {
+    font-size: 64px;
+    font-weight: bold;
+    color: #e94560;
+    line-height: 1.1;
+}
+
+#route-info {
+    font-size: 13px;
+    color: #4ecca3;
+    margin-top: 6px;
+}
+
+/* ===== 入力表示 ===== */
+#input-display {
+    text-align: center;
+    padding: 8px 16px;
+    min-height: 60px;
+}
+
+#current-input {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 4px;
+    min-height: 20px;
+}
+
+#input-history {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.input-tag {
+    background: #0f3460;
+    color: #4ecca3;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* ===== 結果表示 ===== */
+#result-area {
+    text-align: center;
+    padding: 16px;
+    margin: 0 16px;
+    background: #16213e;
+    border-radius: 12px;
+    border: 1px solid #0f3460;
+}
+
+#result-area.hidden {
+    display: none;
+}
+
+#result-icon {
+    font-size: 48px;
+    margin-bottom: 8px;
+}
+
+#result-text {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+#result-answer {
+    font-size: 14px;
+    color: #a0a0a0;
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+#result-tip {
+    font-size: 13px;
+    color: #f0c040;
+    background: rgba(240, 192, 64, 0.1);
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+    text-align: left;
+}
+
+#next-btn {
+    background: #e94560;
+    color: white;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#next-btn:active {
+    background: #c73652;
+}
+
+/* ===== キーボード ===== */
+#keyboard-area {
+    display: flex;
+    gap: 8px;
+    padding: 8px 12px;
+    flex: 1;
+    align-items: stretch;
+}
+
+/* 左側: 倍率キー */
+#multiplier-keys {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 64px;
+    flex-shrink: 0;
+}
+
+.multiplier-key, .special-key {
+    flex: 1;
+    border: 2px solid #0f3460;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #e0e0e0;
+    background: #16213e;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.multiplier-key.active {
+    background: #e94560;
+    border-color: #e94560;
+    color: white;
+}
+
+.special-key {
+    background: #0f3460;
+    border-color: #4ecca3;
+    color: #4ecca3;
+    font-size: 13px;
+}
+
+.multiplier-key:active, .special-key:active {
+    opacity: 0.7;
+}
+
+/* 右側: 数字キー */
+#number-keys {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+}
+
+.number-key {
+    background: #16213e;
+    border: 2px solid #0f3460;
+    border-radius: 8px;
+    color: #e0e0e0;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+}
+
+.number-key:active {
+    background: #0f3460;
+    border-color: #4ecca3;
+}
+
+/* ===== アクションボタン ===== */
+#action-buttons {
+    display: flex;
+    gap: 8px;
+    padding: 8px 12px 16px;
+}
+
+.action-btn {
+    flex: 1;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#undo-btn {
+    background: #333;
+    color: #e0e0e0;
+}
+
+#undo-btn:active {
+    background: #444;
+}
+
+#submit-btn {
+    background: #4ecca3;
+    color: #1a1a2e;
+}
+
+#submit-btn:active {
+    background: #3db88e;
+}
+
+/* ===== キーボード非表示（結果時） ===== */
+.keyboard-hidden #keyboard-area,
+.keyboard-hidden #action-buttons {
+    display: none;
+}
+
+.keyboard-hidden #input-display {
+    display: none;
+}
+
+/* ===== アニメーション ===== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#result-area:not(.hidden) {
+    animation: fadeIn 0.3s ease;
+}
+
+/* ===== safe area対応 ===== */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+    #action-buttons {
+        padding-bottom: calc(16px + env(safe-area-inset-bottom));
+    }
+}
