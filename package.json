@@ -1,0 +1,19 @@
+{
+  "name": "darts-tool",
+  "version": "1.0.0",
+  "description": "ダーツ得点計算ツール - Darts Score Calculator",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "build": "echo 'No build needed - static site'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "darts",
+    "score",
+    "calculator",
+    "game"
+  ],
+  "author": "KOMEI-0225",
+  "license": "MIT"
+}

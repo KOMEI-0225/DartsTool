@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ダーツ得点計算ツール - Darts Score Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 ダーツ得点計算ツール</h1>
+            <p class="subtitle">Darts Score Calculator</p>
+        </header>
+
+        <main>
+            <section class="game-info">
+                <div class="game-mode">
+                    <h2>ゲームモード</h2>
+                    <select id="gameMode">
+                        <option value="01">01ゲーム (301/501/701)</option>
+                        <option value="cricket">クリケット</option>
+                        <option value="count-up">カウントアップ</option>
+                    </select>
+                </div>
+
+                <div class="target-score" id="targetScoreSection">
+                    <h2>目標点数</h2>
+                    <select id="targetScore">
+                        <option value="301">301</option>
+                        <option value="501" selected>501</option>
+                        <option value="701">701</option>
+                        <option value="901">901</option>
+                    </select>
+                </div>
+            </section>
+
+            <section class="score-section">
+                <h2>現在のスコア</h2>
+                <div class="current-score">
+                    <div class="score-display">
+                        <span class="score-label">残り得点:</span>
+                        <span id="currentScore" class="score-value">501</span>
+                    </div>
+                    <div class="round-display">
+                        <span class="score-label">ラウンド:</span>
+                        <span id="roundNumber" class="score-value">1</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="input-section">
+                <h2>スコア入力</h2>
+                <div class="dart-input">
+                    <div class="input-group">
+                        <label for="dart1">1投目:</label>
+                        <input type="number" id="dart1" min="0" max="60" placeholder="0">
+                    </div>
+                    <div class="input-group">
+                        <label for="dart2">2投目:</label>
+                        <input type="number" id="dart2" min="0" max="60" placeholder="0">
+                    </div>
+                    <div class="input-group">
+                        <label for="dart3">3投目:</label>
+                        <input type="number" id="dart3" min="0" max="60" placeholder="0">
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button id="submitRound" class="btn btn-primary">ラウンド確定</button>
+                    <button id="resetGame" class="btn btn-secondary">リセット</button>
+                </div>
+            </section>
+
+            <section class="history-section">
+                <h2>投球履歴</h2>
+                <div id="history" class="history-list">
+                    <p class="empty-message">まだ記録がありません</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2026 DartsTool - ダーツ得点計算ツール</p>
+        </footer>
+    </div>
+
+    <script src="script.js?v=1.0"></script>
+</body>
+</html>
